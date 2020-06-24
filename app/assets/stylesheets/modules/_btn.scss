@@ -1,0 +1,11 @@
+@mixin btn($background-color: forestgreen) {
+  background-color: $background-color;
+  font-size: 40px;
+  color: aliceblue;
+  text-decoration: none;
+  padding: auto 5px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 0.4rem;
+  margin-top: 200px;
+}

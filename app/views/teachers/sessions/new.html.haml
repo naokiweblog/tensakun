@@ -1,17 +1,20 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "teachers/shared/links"
+= render partial: "tops/header"
+.session-form
+  %h2.Session-title 講師ログイン
+  = form_for(resource, as: resource_name, class: "Session", url: session_path(resource_name)) do |f|
+    .field.Session__mail
+      = f.label :email, "Eメール", class: "Session__mail--title"
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "Session__mail--field"
+    .field.Session__password
+      = f.label :password, "パスワード", class: "Session__password--title"
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: "Session__password--field"
+    - if devise_mapping.rememberable?
+      .field.Session__save
+        = f.check_box :remember_me
+        = f.label :remember_me, "ログイン状態を保存する"
+    .actions.Session__btn
+      = f.submit "ログイン", class: "Session__btn--body"
+  .Shared
+    = render "teachers/shared/links"
