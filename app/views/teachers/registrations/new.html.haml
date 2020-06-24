@@ -1,0 +1,28 @@
+= render partial: "tops/header"
+.regist-form
+  %h2.Regist-title 講師登録
+  = form_for(resource, as: resource_name, class: "Regist", url: registration_path(resource_name)) do |f|
+    = render "teachers/shared/error_messages", resource: resource
+    .field.Regist__name
+      = f.label :name, "氏名", class: "Regist__name--title"
+      %br/
+      = f.text_field :name, autofocus: true, class: "Regist__name--field"
+    .field.Regist__mail
+      = f.label :email, "Eメール", class: "Regist__mail--title"
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "Regist__mail--field"
+    .field.Regist__password
+      = f.label :password, "パスワード", class: "Regist__password--title"
+      - if @minimum_password_length
+        %em.Regist__password--length
+          (#{@minimum_password_length} 文字以上)
+      %br/
+      = f.password_field :password, autocomplete: "new-password", class: "Regist__password--field"
+    .field.Regist__confirm
+      = f.label :password_confirmation, "パスワード確認", class: "Regist__confirm--title"
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "Regist__confirm--field"
+    .actions.Regist__btn
+      = f.submit "登録", class: "Regist__btn--body"
+  .Shared
+    = render "teachers/shared/links"

@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.Login {
+  font-family: "Sawarabi Mincho";
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  height: calc(100vh - 50px);
+  background-color: bisque;
+  &__teacher {
+    @include btn(midnightblue);
+  }
+  &__student {
+    @include btn;
+  }
+}

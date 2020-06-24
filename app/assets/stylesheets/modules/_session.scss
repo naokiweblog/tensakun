@@ -1,0 +1,63 @@
+.session-form {
+  background-color: bisque;
+  height: calc(100vh - 50px);
+}
+
+.Session-title {
+  font-family: "Sawarabi Mincho";
+  font-size: 50px;
+  text-align: center;
+  color: midnightblue;
+  padding-top: 30px;
+}
+
+.Session {
+  color: midnightblue;
+  font-family: "Sawarabi Mincho";
+  &__mail {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    &--title {
+      font-size: 30px;
+      color: midnightblue;
+      font-family: "Sawarabi Mincho";
+    }
+    &--field {
+      height: 30px;
+      width: 300px;
+      font-size: 20px;
+    }
+  }
+  &__password {
+      @extend .Session__mail;
+    &--title {
+      @extend .Session__mail--title;
+    }
+    &--field {
+      @extend .Session__mail--field;
+    }
+  }
+  &__save {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    font-family: "Sawarabi Mincho";
+  }
+  &__btn {
+    &--body {
+      margin: 10px auto 10px;
+      width: 100px;
+      height: 30px;
+      display: block;
+      border-color: midnightblue;
+      border-radius: 0.1rem;
+    }
+  }
+}
+.Shared {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
