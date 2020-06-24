@@ -4,5 +4,8 @@ class Student < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :room_students
+  has_many :rooms, through: :room_students
+
   validates :name, presence: true, uniqueness: true
 end

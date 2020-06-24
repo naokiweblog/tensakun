@@ -4,5 +4,8 @@ class Teacher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :room_teachers
+  has_many :rooms, through: :room_teachers
+
   validates :name, presence: true, uniqueness: true
 end
