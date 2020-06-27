@@ -16,12 +16,19 @@
   }
   &__right {
     font-family: "Hannari";
-    border: aliceblue solid 1px;
-    border-radius: 0.5rem;
-    margin-right: 10px;
-    &--btn {
+    &--room {
       text-decoration: none;
       color: aliceblue;
+      border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    margin-right: 10px;
+    }
+    &--logout {
+      text-decoration: none;
+      color: aliceblue;
+      border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    margin-right: 10px;
     }
   }
 }

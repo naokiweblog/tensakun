@@ -4,14 +4,15 @@
   .Header__name
     てんさくん
   .Header__right
-    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--btn'
+    = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
 
 .Room
-  - rooms.each do |room|
-    .Side-bar__group-list--example
-      = link_to group_messages_path(group), class:"Side-bar__group-list--example--link" do
-        .Side-bar__group-list--example--link--name
-          = group.name
+  - @rooms.each do |room|
+    .Poom__one
+      = link_to room_answers_path(room), class:"Room__one--link" do
+        .Room__one--link--name
+          = room.name
         .Side-bar__group-list--example--link--message
-          = group.show_last_message
+          = room.teacher.name
 

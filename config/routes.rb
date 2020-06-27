@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
 
   root 'tops#index'
-  resources :rooms, only: [:new, :create]
+  resources :rooms, only: [:index, :new, :create]
 end

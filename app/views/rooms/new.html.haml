@@ -1,0 +1,15 @@
+.Header
+  .Header__left
+    = current_teacher.name
+  .Header__name
+    てんさくん
+  .Header__right
+    -# = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
+
+.Make-room
+  = form_with(model: @room, local: true) do |form|
+    %h3.Make-room__title
+      部屋を作成する
+    = form.text_field :name, placeholder: "授業名", class: "Make-room__name"
+    = form.submit "作成", class: "Make-room__btn"

@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all
   end
   
   def new
     @room = Room.new
-    @room.teacher << current_teacher
+    @room.teachers << current_teacher
   end
 
   def create
