@@ -1,3 +1,17 @@
 .Header
+  .Header__left
+    = current_teacher.name
   .Header__name
     てんさくん
+  .Header__right
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--btn'
+
+.Room
+  - rooms.each do |room|
+    .Side-bar__group-list--example
+      = link_to group_messages_path(group), class:"Side-bar__group-list--example--link" do
+        .Side-bar__group-list--example--link--name
+          = group.name
+        .Side-bar__group-list--example--link--message
+          = group.show_last_message
+

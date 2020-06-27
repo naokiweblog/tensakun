@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  has_many :answers
   has_many :room_teachers
   has_many :teachers, through: :room_teachers
   has_many :room_students

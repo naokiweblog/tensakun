@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_091756) do
+ActiveRecord::Schema.define(version: 2020_06_27_064511) do
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "question", null: false
+    t.text "content", null: false
+    t.integer "score", null: false
+    t.text "hint"
+    t.bigint "room_id"
+    t.bigint "teacher_id"
+    t.bigint "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_answers_on_room_id"
+    t.index ["student_id"], name: "index_answers_on_student_id"
+    t.index ["teacher_id"], name: "index_answers_on_teacher_id"
+  end
 
   create_table "room_students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
@@ -65,6 +80,9 @@ ActiveRecord::Schema.define(version: 2020_06_24_091756) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "rooms"
+  add_foreign_key "answers", "students"
+  add_foreign_key "answers", "teachers"
   add_foreign_key "room_students", "rooms"
   add_foreign_key "room_students", "students"
   add_foreign_key "room_teachers", "rooms"

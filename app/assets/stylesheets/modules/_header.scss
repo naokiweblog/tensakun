@@ -2,11 +2,26 @@
   background-color: forestgreen;
   height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  &__left {
+    font-family: "Sawarabi Mincho";
+    font-size: 30px;
+    margin-left: 10px;
+  }
   &__name {
     color: aliceblue;
     font-size: 40px;
     font-family: "Hannari";
+  }
+  &__right {
+    font-family: "Hannari";
+    border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    margin-right: 10px;
+    &--btn {
+      text-decoration: none;
+      color: aliceblue;
+    }
   }
 }

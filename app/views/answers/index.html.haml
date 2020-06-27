@@ -1,0 +1,6 @@
+.contents.row
+  - @tweets.each do |tweet|
+    .content_post{style: "background-image: url(#{tweet.image});"}
+      %p= tweet.text
+      %span.name
+        = tweet.name
