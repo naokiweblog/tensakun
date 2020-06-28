@@ -18,6 +18,6 @@
   = form_with(model: @answer, local: true) do |form|
     = form.text_field :question, placeholder: "問い", class: "Answer__question"
     = form.text_area :content, placeholder: "答案", class: "Answer__content"
-    = form.text_area :hint, placeholder: "答案", class: "Answer__hint"
-    = form.number_field :score, placeholder: "得点", class: "Answer__socre"
+    = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
+    = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
     = form.submit "送信", class: "Answer__submit"
