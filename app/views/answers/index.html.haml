@@ -1,6 +1,23 @@
-.contents.row
-  - @tweets.each do |tweet|
-    .content_post{style: "background-image: url(#{tweet.image});"}
-      %p= tweet.text
-      %span.name
-        = tweet.name
+.Header
+  .Header__left
+    - if teacher_signed_in?
+      = current_teacher.name
+    - elsif student_signed_in?
+      = current_student.name
+    - else
+  .Header__name
+    てんさくん
+  .Header__right
+    = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
+
+-# .contents.row
+-#   - @answers.each do |answer|
+
+.Answer
+  = form_with(model: @answer, local: true) do |form|
+    = form.text_field :question, placeholder: "問い", class: "Answer__question"
+    = form.text_area :content, placeholder: "答案", class: "Answer__content"
+    = form.text_area :hint, placeholder: "答案", class: "Answer__hint"
+    = form.number_field :score, placeholder: "得点", class: "Answer__socre"
+    = form.submit "送信", class: "Answer__submit"

@@ -1,6 +1,10 @@
 .Header
   .Header__left
-    = current_teacher.name
+    - if teacher_signed_in?
+      = current_teacher.name
+    - elsif student_signed_in?
+      = current_student.name
+    - else
   .Header__name
     てんさくん
   .Header__right
