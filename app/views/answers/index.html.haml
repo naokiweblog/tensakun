@@ -11,13 +11,33 @@
     = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
     = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
 
--# .contents.row
--#   - @answers.each do |answer|
+.Content
+  .Answers
+    - @answers.each do |answer|
+      .Answers__one
+        .Answers__one--info
+          .Answers__one--info--question
+            = answer.question
+          .Answers__one--info--name
+            = answer.student.name
+          .Answers__one--info--score
+            = answer.score
+        .Answers__one--content
+          = answer.content
+        .Answers__one--hint
+          = answer.hint
+        .Answers__one--box
 
-.Answer
-  = form_with(model: @answer, local: true) do |form|
-    = form.text_field :question, placeholder: "問い", class: "Answer__question"
-    = form.text_area :content, placeholder: "答案", class: "Answer__content"
-    = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
-    = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
-    = form.submit "送信", class: "Answer__submit"
+        -# if answer.user = current.user
+
+  .Answer
+    = form_with model: [@room, @answer], local: true do |form|
+      .Answer__info
+        = form.text_field :question, placeholder: "問い", class: "Answer__info--question"
+        .Answer__info--name
+          = current_student.name
+        .Answer__info--box
+      = form.text_area :content, placeholder: "答案", class: "Answer__content"
+      -# = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
+      -# = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
+      = form.submit "送信", class: "Answer__submit"

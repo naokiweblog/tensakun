@@ -1,0 +1,50 @@
+.Content {
+  background-color: bisque;
+  height: calc(100vh - 50px);
+  padding-top: 10px;
+}
+
+.Answers {
+  
+  &__one {
+    width: 370px;
+    height: 210px;
+    margin-left: auto;
+    margin-right: auto;
+    border: midnightblue solid 1px;
+    background-color: aliceblue;
+    &--info {
+      display: flex;
+      border-bottom: midnightblue solid 1px;
+      &--question {
+        width: 30px;
+        height: 30px;
+        border-right: midnightblue solid 1px;
+      }
+      &--name {
+        width: 300px;
+        height: 30px;
+        border-right: midnightblue solid 1px;
+      }
+      &--score {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &--content {
+      width: 360px;
+      height: 120px;
+      border-bottom: midnightblue solid 1px;
+    }
+    &--hint {
+      width: 360px;
+      height: 60px;
+    }
+    
+  }
+}
+
+.Answer {
+  background-color: bisque;
+  
+}
