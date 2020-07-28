@@ -61,3 +61,6 @@ gem "haml-rails", "~> 2.0"
 
 # pry-rails
 gem 'pry-rails'
+
+# jQuery
+gem 'jquery-rails'
