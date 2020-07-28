@@ -1,16 +1,24 @@
 .Room {
   font-family: "Sawarabi Mincho";
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
   text-align: center;
-  height: calc(100vh - 50px);
+  align-content: flex-start;
+  min-height: 100vh;
+  height: 100%;
   background-color: bisque;
-  // &__teacher {
-  //   @include btn(midnightblue);
-  // }
-  // &__student {
-  //   @include btn;
-  // }
+  padding: 80px 30px 30px;
+  &__one {
+    background-color: midnightblue;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: aliceblue;
+    line-height: 200px;
+  }
 }
 
 

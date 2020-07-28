@@ -1,0 +1,18 @@
+= form_with model: [@room, @answer], local: true, class: "Answers" do |form|
+  .Answers__one
+    .Answers__one--info
+      .Answers__one--info--question
+        %p 問
+        = @answer.question
+      .Answers__one--info--name
+        = @answer.student.name
+      .Answers__one--info--score
+        = @answer.score
+        %p 点
+    .Answers__one--content
+      = @answer.content
+    = form.text_area :hint, placeholder: "ヒント", class: "Answers__one--hint-form", value: @answer.hint
+    = form.number_field :score, placeholder: "得点を入力", class: "Answers__one--score-form", value: "得点を入力"
+    = form.submit "送信", class: "Answers__one--submit-form"
+
+

@@ -1,9 +1,11 @@
 .Header {
   background-color: forestgreen;
   height: 50px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   &__left {
     font-family: "Sawarabi Mincho";
     font-size: 30px;

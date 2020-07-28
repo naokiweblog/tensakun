@@ -13,10 +13,7 @@
 
 .Room
   - @rooms.each do |room|
-    .Poom__one
-      = link_to room_answers_path(room.id), class:"Room__one--link" do
-        .Room__one--link--name
-          = room.name
-        .Side-bar__group-list--example--link--message
-          = room.teachers.name
+    = link_to room_answers_path(room.id), class:"Room__one" do
+      .Room__one--name
+        = room.name
 

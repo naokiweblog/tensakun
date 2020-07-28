@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :new, :create]
 
   resources :rooms do
-    resources :answers, only: [:index, :create]
+    resources :answers, only: [:index, :create, :edit, :update]
   end
 end

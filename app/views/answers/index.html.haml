@@ -13,31 +13,49 @@
 
 .Content
   .Answers
-    - @answers.each do |answer|
-      .Answers__one
-        .Answers__one--info
-          .Answers__one--info--question
-            = answer.question
-          .Answers__one--info--name
-            = answer.student.name
-          .Answers__one--info--score
-            = answer.score
-        .Answers__one--content
-          = answer.content
-        .Answers__one--hint
-          = answer.hint
-        .Answers__one--box
-
-        -# if answer.user = current.user
-
-  .Answer
-    = form_with model: [@room, @answer], local: true do |form|
-      .Answer__info
-        = form.text_field :question, placeholder: "問い", class: "Answer__info--question"
-        .Answer__info--name
-          = current_student.name
-        .Answer__info--box
-      = form.text_area :content, placeholder: "答案", class: "Answer__content"
-      -# = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
-      -# = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
-      = form.submit "送信", class: "Answer__submit"
+    - if student_signed_in?
+      - current_student.answers.each do |answer|
+        .Answers__one
+          .Answers__one--info
+            .Answers__one--info--question
+              = answer.question
+            .Answers__one--info--name
+              = answer.student.name
+            .Answers__one--info--score
+              = answer.score
+          .Answers__one--content
+            = answer.content
+          .Answers__one--hint
+            = answer.hint
+          .Answers__one--box
+    - if teacher_signed_in?
+      - @answers.each do |answer|
+        .Answers__one
+          .Answers__one--info
+            .Answers__one--info--question
+              %p 問
+              = answer.question
+            .Answers__one--info--name
+              = answer.student.name
+            .Answers__one--info--score
+              = answer.score
+              %p 点
+          .Answers__one--content
+            = answer.content
+          .Answers__one--hint
+            = answer.hint
+          = link_to edit_room_answer_path(@room, answer), class: "Answers__one--edit" do
+            採点する
+          .Answers__one--box
+  - if student_signed_in?
+    .Answer
+      = form_with model: [@room, @answer], local: true do |form|
+        .Answer__info
+          = form.text_field :question, placeholder: "問", class: "Answer__info--question"
+          .Answer__info--name
+            = current_student.name
+          = form.submit "送信", class: "Answer__info--submit"
+        = form.text_area :content, placeholder: "答案", class: "Answer__content"
+        -# = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
+        -# = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
+  - else 
