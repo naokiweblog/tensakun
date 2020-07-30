@@ -12,12 +12,12 @@ class AnswersController < ApplicationController
   end
 
   def edit
-
+    @answer = Answer.find_by(id: params[:id])
   end
   def update
     @answer = Answer.find(params[:id])
     if @answer.update(upanswer_params)
-      redirect_to room_answers_path(@room)
+      # redirect_to room_answers_path(@room)
     else
       render :edit
     end
@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:question, :content, :hint, :score).merge(student_id: current_student.id, room_id: params[:room_id])
   end
   def upanswer_params
-    params.require(:answer).permit(:hint, :score)
+    params.permit(:hint, :score)
   end
   def set_room
     @room = Room.find(params[:room_id])

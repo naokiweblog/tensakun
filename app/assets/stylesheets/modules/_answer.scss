@@ -59,17 +59,22 @@
       border: midnightblue solid 1px;
       background-color: aliceblue;
     }
-    &--edit {
-      width: 360px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      text-decoration: none;
-      background-color: #FFFFFF;
-      border: grey solid 1px;
-      color: black;
-      border-radius: 0.3em;
-      display: block;
+    &--form {
+      &--hint {
+        @extend .Answers__one--hint
+      }
+      &--edit {
+        width: 360px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #FFFFFF;
+        border: grey solid 1px;
+        color: black;
+        border-radius: 0.3em;
+        display: block;
+      }
     }
     &--box {
       height: 10px;

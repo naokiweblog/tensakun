@@ -1,0 +1,3 @@
+$('#<%= @answer.id %>').html(
+  '<%= form_tag(room_answer_path, method: :patch, id: "update-answer", remote: true) do %><textarea name="hint" placeholder="ヒントを入力" class="Answers__one--hint-form"><%= @answer.hint %></textarea><input type="number" placeholder="得点を入力" class="Answers__one--score-form" name="score"><input type="submit" value="保存" class="Answers__one--submit-form"><% end %>'
+)

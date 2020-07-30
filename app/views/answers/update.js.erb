@@ -1,0 +1,6 @@
+$('#<%= @answer.id %>').html(
+  '<div class="Answers__one--form--hint"><%= @answer.hint %></div><a class="Answers__one--form--edit" data-remote="true" href="/rooms/<%= @room.id %>/answers/<%= @answer.id %>/edit">採点する</a>'
+)
+$('#score<%= @answer.id %>').html(
+  '<%= @answer.score %><p>点</p>'
+)

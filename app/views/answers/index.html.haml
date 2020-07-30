@@ -15,7 +15,7 @@
   .Answers
     - if student_signed_in?
       - current_student.answers.each do |answer|
-        .Answers__one
+        .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
             .Answers__one--info--question
               = answer.question
@@ -30,22 +30,23 @@
           .Answers__one--box
     - if teacher_signed_in?
       - @answers.each do |answer|
-        .Answers__one
+        .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
             .Answers__one--info--question
               %p 問
               = answer.question
             .Answers__one--info--name
               = answer.student.name
-            .Answers__one--info--score
+            .Answers__one--info--score{id: "score#{answer.id}"}
               = answer.score
               %p 点
           .Answers__one--content
             = answer.content
-          .Answers__one--hint
-            = answer.hint
-          = link_to edit_room_answer_path(@room, answer), class: "Answers__one--edit" do
-            採点する
+          .Answers__one--form{id: "#{answer.id}"}
+            .Answers__one--form--hint
+              = answer.hint
+            = link_to edit_room_answer_path(@room, answer), class: "Answers__one--form--edit" ,remote: true do
+              採点する
           .Answers__one--box
   - if student_signed_in?
     .Answer
