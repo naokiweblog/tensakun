@@ -10,5 +10,17 @@ Rails.application.routes.draw do
     registrations: 'teachers/registrations'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  authenticated :student do
+    root 'rooms#index', as: :student_authenticated_root
+  end
+  authenticated :teacher do
+    root 'rooms#index', as: :teacher_authenticated_root
+  end
+
   root 'tops#index'
+  resources :rooms, only: [:index, :new, :create]
+
+  resources :rooms do
+    resources :answers, only: [:index, :create, :edit, :update]
+  end
 end

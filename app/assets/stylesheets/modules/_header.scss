@@ -1,12 +1,36 @@
 .Header {
   background-color: forestgreen;
   height: 50px;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  position: fixed;
+  &__left {
+    font-family: "Sawarabi Mincho";
+    font-size: 30px;
+    margin-left: 10px;
+  }
   &__name {
     color: aliceblue;
     font-size: 40px;
     font-family: "Hannari";
+  }
+  &__right {
+    font-family: "Hannari";
+    &--room {
+      text-decoration: none;
+      color: aliceblue;
+      border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    margin-right: 10px;
+    }
+    &--logout {
+      text-decoration: none;
+      color: aliceblue;
+      border: aliceblue solid 1px;
+    border-radius: 0.5rem;
+    margin-right: 10px;
+    }
   }
 }

@@ -1,0 +1,128 @@
+.Content {
+  background-color: bisque;
+  padding-top: 60px;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.Answers {
+  
+  &__one {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    &--info {
+      display: flex;
+      background-color: aliceblue;
+      &--question {
+        width: 40px;
+        height: 30px;
+        border-top: midnightblue solid 1px;
+        border-left: midnightblue solid 1px;
+        border-right: midnightblue solid 1px;
+        display: flex;
+        line-height: 30px;
+      }
+      &--name {
+        width: 280px;
+        height: 30px;
+        border-top: midnightblue solid 1px;
+        border-right: midnightblue solid 1px;
+        line-height: 30px;
+      }
+      &--score {
+        width: 40px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-top: midnightblue solid 1px;
+        border-right: midnightblue solid 1px;
+        display: flex;
+      }
+      &--score-form {
+        width: 40px;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+    &--content {
+      width: 360px;
+      height: 120px;
+      border-top: midnightblue solid 1px;
+      border-left: midnightblue solid 1px;
+      border-right: midnightblue solid 1px;
+      background-color: aliceblue;
+    }
+    &--hint {
+      width: 360px;
+      height: 60px;
+      border: midnightblue solid 1px;
+      background-color: aliceblue;
+    }
+    &--form {
+      &--hint {
+        @extend .Answers__one--hint
+      }
+      &--edit {
+        width: 360px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #FFFFFF;
+        border: grey solid 1px;
+        color: black;
+        border-radius: 0.3em;
+        display: block;
+      }
+    }
+    &--box {
+      height: 10px;
+      width: 360px;
+      background-color: bisque;
+    }
+    &--hint-form {
+      width: 360px;
+      height: 60px;
+    }
+    &--score-form {
+      width: 100px;
+      height: 30px;
+    }
+    &--submit-form {
+      width: 250px;
+      height: 30px;
+    }
+  }
+}
+
+.Answer {
+
+  width: 360px;
+  height: 180px;
+  padding-bottom: 30px;
+  margin: 30px auto 0px;
+  background-color: bisque;
+  &__info {
+    display: flex;
+    &--question {
+      width: 30px;
+      height: 30px;
+    }
+    &--name {
+      width: 300px;
+      height: 30px;
+      background-color: #FFFFFF;
+      border: #4F4F4F solid 1px;
+    }
+    &--submit {
+      width: 30px;
+      height: 30px;
+      font-size: small;
+    }
+  }
+  &__content {
+    width: 360px;
+    height: 120px;
+  }
+}
