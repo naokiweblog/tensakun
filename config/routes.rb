@@ -22,5 +22,9 @@ Rails.application.routes.draw do
 
   resources :rooms do
     resources :answers, only: [:index, :create, :edit, :update]
+
+    namespace :api do
+      resources :answers, only: :index, defaults: { format: 'json' }
+    end
   end
 end

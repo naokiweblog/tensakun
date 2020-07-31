@@ -1,3 +1,4 @@
+= javascript_include_tag 'autoReload'
 .Header
   .Header__left
     - if teacher_signed_in?
@@ -12,23 +13,26 @@
     = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
 
 .Content
-  .Answers
-    - if student_signed_in?
+  - if student_signed_in?
+    .Answers#student-answers
       - current_student.answers.each do |answer|
         .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
             .Answers__one--info--question
+              %p 問
               = answer.question
             .Answers__one--info--name
               = answer.student.name
             .Answers__one--info--score
               = answer.score
+              %p 点
           .Answers__one--content
             = answer.content
           .Answers__one--hint
             = answer.hint
           .Answers__one--box
-    - if teacher_signed_in?
+  - if teacher_signed_in?
+    .Answers#teacher-answers
       - @answers.each do |answer|
         .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
