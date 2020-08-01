@@ -1,39 +1,40 @@
+= javascript_include_tag 'autoReload'
+
 .Header
   .Header__left
-    - if teacher_signed_in?
-      = current_teacher.name
-    - elsif student_signed_in?
-      = current_student.name
-    - else
+    =@room.name
   .Header__name
     てんさくん
   .Header__right
-    = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
-    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
+    = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
 
-.Content
-  .Answers
-    - if student_signed_in?
-      - current_student.answers.each do |answer|
+- if student_signed_in?
+  .Content#student-content
+    .Answers#student-answers
+      - @ans.each do |answer|
         .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
             .Answers__one--info--question
+              %p 問
               = answer.question
             .Answers__one--info--name
               = answer.student.name
             .Answers__one--info--score
               = answer.score
+              %p 点
           .Answers__one--content
             = answer.content
           .Answers__one--hint
             = answer.hint
           .Answers__one--box
-    - if teacher_signed_in?
+- if teacher_signed_in?
+  .Content#teacher-content
+    .Answers#teacher-answers
       - @answers.each do |answer|
         .Answers__one{data: {answer: {id: answer.id}}}
           .Answers__one--info
             .Answers__one--info--question
-              %p 問
               = answer.question
             .Answers__one--info--name
               = answer.student.name
@@ -48,15 +49,14 @@
             = link_to edit_room_answer_path(@room, answer), class: "Answers__one--form--edit" ,remote: true do
               採点する
           .Answers__one--box
-  - if student_signed_in?
-    .Answer
-      = form_with model: [@room, @answer], local: true do |form|
-        .Answer__info
-          = form.text_field :question, placeholder: "問", class: "Answer__info--question"
-          .Answer__info--name
-            = current_student.name
-          = form.submit "送信", class: "Answer__info--submit"
-        = form.text_area :content, placeholder: "答案", class: "Answer__content"
-        -# = form.text_area :hint, placeholder: "ヒント", class: "Answer__hint"
-        -# = form.number_field :score, placeholder: "得点", class: "Answer__socre", value: 0
-  - else 
+
+- if student_signed_in?
+  .Bottom
+    = form_with model: [@room, @answer], class: "Answer", local: true do |form|
+      .Answer__info
+        = form.text_field :question, placeholder: "問題番号", class: "Answer__info--question"
+        .Answer__info--name
+          = current_student.name
+        = form.submit "送信", class: "Answer__info--submit"
+      = form.text_area :content, placeholder: "答案", class: "Answer__content"
+- else

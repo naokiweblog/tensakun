@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  height: calc(100vh - 50px);
+  height: 100vh;
   background-color: bisque;
   &__teacher {
     @include btn(midnightblue);
