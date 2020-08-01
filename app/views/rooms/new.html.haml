@@ -8,8 +8,8 @@
   .Header__name
     てんさくん
   .Header__right
-    = link_to "部屋を作成", new_room_path, method: :get, class: 'Header__right--room'
-    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: 'Header__right--logout'
+    = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
 
 .Make-room
   = form_with(model: @room, local: true) do |form|

@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2020_06_27_064511) do
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question", null: false
     t.text "content", null: false
-    t.integer "score"
-    t.text "hint"
+    t.string "score", default: ""
+    t.string "hint", default: ""
     t.bigint "room_id"
     t.bigint "student_id"
     t.datetime "created_at", precision: 6, null: false

@@ -7,7 +7,7 @@
   min-height: 100vh;
   height: 100%;
   background-color: bisque;
-  padding: 80px 30px 30px;
+  padding: 30px 30px;
   &__one {
     background-color: midnightblue;
     height: 200px;
@@ -24,7 +24,8 @@
 
 
 .Make-room {
-  height: calc(100vh - 50px);
+  min-height: 100vh;
+  height: 100%;
   background-color: bisque;
   font-family: "Sawarabi Mincho";
   color: midnightblue;
@@ -34,7 +35,7 @@
     font-size: 50px;
     text-align: center;
     color: midnightblue;
-    padding-top: 30px;
+    padding-top: 130px;
   }
   &__name {
     width: 300px;

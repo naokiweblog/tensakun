@@ -83,6 +83,6 @@ $(function(){
     });
   };
   $(function() {
-      setInterval(reloadAnswers, 7000);
+      setInterval(reloadAnswers, 10000);
   });
 })

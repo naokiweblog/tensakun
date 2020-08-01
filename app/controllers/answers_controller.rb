@@ -5,10 +5,19 @@ class AnswersController < ApplicationController
   def index
     @answer = Answer.new
     @answers = @room.answers.includes(:student)
+    @ans = @room.answers.includes(:student).where(student_id: current_student.id)
   end
 
   def create
-    @answer = @room.answers.create(answer_params)
+    @answer = @room.answers.new(answer_params)
+    if @answer.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      @answers = @room.answers.includes(:student)
+      render :index
+    end
   end
 
   def edit
@@ -17,11 +26,9 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
     if @answer.update(upanswer_params)
-      # redirect_to room_answers_path(@room)
     else
       render :edit
     end
-    # @answer = @room.answers.update(upanswer_params)
   end
 
   private

@@ -3,9 +3,13 @@
   height: 50px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
+  position: relative;
+  .mini-name {
+    margin-left: auto;
+    margin-right: auto;
+  }
   &__left {
     font-family: "Sawarabi Mincho";
     font-size: 30px;
@@ -15,22 +19,28 @@
     color: aliceblue;
     font-size: 40px;
     font-family: "Hannari";
+    line-height: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   &__right {
+    position: absolute;
+    right: 0px;
     font-family: "Hannari";
     &--room {
       text-decoration: none;
       color: aliceblue;
       border: aliceblue solid 1px;
-    border-radius: 0.5rem;
-    margin-right: 10px;
+      border-radius: 0.5rem;
+      margin-right: 10px;
+    }
+    &--index {
+      @extend .Header__right--room;
     }
     &--logout {
-      text-decoration: none;
-      color: aliceblue;
-      border: aliceblue solid 1px;
-    border-radius: 0.5rem;
-    margin-right: 10px;
+      @extend .Header__right--room;
     }
   }
 }
