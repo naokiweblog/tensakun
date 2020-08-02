@@ -22,7 +22,7 @@
         display: flex;
         background-color: aliceblue;
         &--question {
-          width: 90px;
+          width: 120px;
           height: 30px;
           border-top: midnightblue solid 1px;
           border-left: midnightblue solid 1px;
@@ -31,7 +31,7 @@
           line-height: 30px;
         }
         &--name {
-          width: 230px;
+          width: 200px;
           height: 30px;
           border-top: midnightblue solid 1px;
           border-right: midnightblue solid 1px;
@@ -118,11 +118,11 @@
     &__info {
       display: flex;
       &--question {
-        width: 80px;
+        width: 110px;
         height: 30px;
       }
       &--name {
-        width: 250px;
+        width: 220px;
         height: 30px;
         background-color: #FFFFFF;
         border: #4F4F4F solid 1px;

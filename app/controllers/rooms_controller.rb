@@ -9,8 +9,14 @@ class RoomsController < ApplicationController
   end
 
   def create
-    Room.create(room_params)
-    redirect_to rooms_path
+    @room = Room.new(room_params)
+    if @room.save
+      redirect_to rooms_path
+    else
+      @room = Room.new
+      @room.teachers << current_teacher
+      render :new
+    end
   end
 
   private
