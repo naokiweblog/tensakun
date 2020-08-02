@@ -1,6 +1,7 @@
 #teacher-content {
-  min-height: 100vh;
-  height: 100%;
+  height: calc(100vh - 50px);
+  overflow: scroll;
+  padding-top: 10px;
 }
 
 .Content {

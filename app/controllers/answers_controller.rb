@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   before_action :set_room
   before_action :set_answer, only: [:edit]
+  before_action :move_to_top
 
   def index
     @answer = Answer.new
@@ -45,5 +46,13 @@ class AnswersController < ApplicationController
   end
   def set_answer
     @answer = Answer.find(params[:id])
+  end
+
+  def move_to_top
+    if student_signed_in?
+    elsif teacher_signed_in?
+    else
+      redirect_to root_path
+    end
   end
 end
