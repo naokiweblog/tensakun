@@ -8,4 +8,11 @@ class Teacher < ApplicationRecord
   has_many :rooms, through: :room_teachers
 
   validates :name, presence: true, uniqueness: true
+
+  def self.guest
+    find_or_create_by!(email: "teacher@example.com") do |teacher|
+      teacher.name = "講師太郎"
+      teacher.password = SecureRandom.urlsafe_base64
+    end
+  end
 end

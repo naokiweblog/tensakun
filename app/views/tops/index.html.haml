@@ -1,6 +1,12 @@
 = render partial: "layouts/mini-header"
-.Login
-  = link_to new_teacher_session_path, class: "Login__teacher" do
-    講師ログイン
-  = link_to new_student_session_path, class: "Login__student" do
-    生徒ログイン
+.Logins
+  .Logins__login
+    = link_to new_teacher_session_path, class: "Logins__login__teacher" do
+      講師ログイン
+    = link_to new_student_session_path, class: "Logins__login__student" do
+      生徒ログイン
+  .Logins__test
+    = link_to teachers_guest_sign_in_path, method: :post, class: "Logins__test__teacher" do
+      簡単ログイン
+    = link_to students_guest_sign_in_path, method: :post, class: "Logins__test__student" do
+      簡単ログイン
