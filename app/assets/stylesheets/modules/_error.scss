@@ -1,0 +1,13 @@
+#error_explanation {
+  border: red solid 1px;
+  background-color: aliceblue;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  .error-num {
+    text-align: center;
+  }
+  .error-example {
+    @extend .error-num;
+  }
+}

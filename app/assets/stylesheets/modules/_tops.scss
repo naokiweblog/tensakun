@@ -2,17 +2,31 @@
   box-sizing: border-box;
 }
 
-.Login {
+.Logins {
   font-family: "Sawarabi Mincho";
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
   height: 100vh;
   background-color: bisque;
-  &__teacher {
-    @include btn(midnightblue);
+  &__login {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    &__teacher {
+      @include btn(midnightblue);
+    }
+    &__student {
+      @include btn;
+    }
   }
-  &__student {
-    @include btn;
+  &__test {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    &__teacher {
+      @include btn(midnightblue);
+    }
+    &__student {
+      @include btn;
+    }
   }
+
 }

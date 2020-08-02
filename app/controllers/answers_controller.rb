@@ -5,7 +5,9 @@ class AnswersController < ApplicationController
   def index
     @answer = Answer.new
     @answers = @room.answers.includes(:student)
-    @ans = @room.answers.includes(:student).where(student_id: current_student.id)
+    if student_signed_in?
+      @ans = @room.answers.includes(:student).where(student_id: current_student.id)
+    end
   end
 
   def create
