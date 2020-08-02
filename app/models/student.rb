@@ -9,6 +9,7 @@ class Student < ApplicationRecord
   has_many :rooms, through: :room_students
 
   validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   def self.guest
     find_or_create_by!(email: "student@example.com") do |student|

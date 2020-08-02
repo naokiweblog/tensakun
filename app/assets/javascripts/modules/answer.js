@@ -46,7 +46,7 @@ $(function(){
       $("#student-answers").animate({ scrollTop: $("#student-answers")[0].scrollHeight});
     })
     .fail(function() {
-      alert("(送信エラー)問題番号や答案は記入しましたか？");
+      alert("(送信エラー)問題番号(6文字以内)や答案は記入しましたか？");
       $(".Answer__info--submit").prop("disabled", false);
     });
   });

@@ -4,10 +4,10 @@
   flex-wrap: wrap;
   text-align: center;
   align-content: flex-start;
-  min-height: 100vh;
-  height: 100%;
+  height: calc(100vh - 50px);
   background-color: bisque;
   padding: 30px 30px;
+  overflow: scroll;
   &__one {
     background-color: midnightblue;
     height: 200px;
@@ -24,8 +24,7 @@
 
 
 .Make-room {
-  min-height: 100vh;
-  height: 100%;
+  height: calc(100vh - 50px);
   background-color: bisque;
   font-family: "Sawarabi Mincho";
   color: midnightblue;

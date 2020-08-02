@@ -15,6 +15,6 @@
   = form_with(model: @room, local: true) do |form|
     %h3.Make-room__title
       部屋を作成する
-    = form.text_field :name, placeholder: "授業名", class: "Make-room__name"
+    = form.text_field :name, placeholder: "新規の授業名(8文字以内)", class: "Make-room__name"
     - form.collection_check_boxes :teacher_ids, Teacher.all, :id, :name
     = form.submit "作成", class: "Make-room__btn"
