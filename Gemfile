@@ -67,3 +67,8 @@ gem 'pry-rails'
 
 # jQuery
 gem 'jquery-rails'
+
+group :production do
+  # Unicorn
+  gem 'unicorn', '5.4.1'
+end
