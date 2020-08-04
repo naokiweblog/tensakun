@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: tensakun_production
-  username: tensakun
-  password: <%= ENV['TENSAKUN_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
