@@ -4,7 +4,7 @@
 
 .Logins {
   font-family: "Sawarabi Mincho";
-  height: 100vh;
+  height: calc(100vh - 50px);
   background-color: bisque;
   &__login {
     display: flex;
