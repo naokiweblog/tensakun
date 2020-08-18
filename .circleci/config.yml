@@ -6,10 +6,11 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+    working_directory: ~/tensakun
     steps:
       - checkout
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: bundler install
+          command: |
+            gem install bundler
+            bundle-install
