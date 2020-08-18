@@ -6,11 +6,13 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
+      environment:
+        - BUNDLER_VERSION: 2.1.4
     working_directory: ~/tensakun
     steps:
       - checkout
       - run:
-          name: bundler install
+          name: install dependencies
           command: |
-            gem install bundler
-            bundle-install
+            gem install bundler -v 2.1.4
+            bundle install
