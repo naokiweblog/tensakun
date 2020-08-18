@@ -29,3 +29,17 @@ jobs:
         paths:
         - ./vendor/bundle
         key: v1-tensakun-{{ checksum "Gemfile.lock" }}
+
+    - run: mv ./config/database.yml.ci ./config/database.yml
+
+    - run:
+        name: databaseSet
+        command: |
+           bundle exec rake db:create
+           bundle exec rake db:schema:load
+
+    - run:
+        name: execute rspec
+        command: bundle exec rspec
+    - store_test_results:
+        path: /tmp/test-results
