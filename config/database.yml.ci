@@ -1,9 +1,15 @@
-test: &default
-  <<: *default
+default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
   username: root
   host: 127.0.0.1
   port: 3306
+
+development:
+  <<: *default
+  database: tensakun_development
+
+test:
+  <<: *default
   database: tensakun_test
