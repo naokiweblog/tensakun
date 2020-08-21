@@ -54,6 +54,7 @@ test:
 production:
   <<: *default
   database: tensakun_production
-  username: root
+  username: admin
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: tensakun-db.cumkni8k9jlv.ap-northeast-1.rds.amazonaws.com
   socket: /var/lib/mysql/mysql.sock
