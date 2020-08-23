@@ -1,0 +1,17 @@
+.Header
+  .Header__left
+    - if teacher_signed_in?
+      = current_teacher.name
+    - elsif student_signed_in?
+      = current_student.name
+    - else
+  .Header__name
+    てんさくん
+  .Header__right
+    = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
+
+.Room-delete
+  .Room-delete__title
+    部屋を削除しました
+  = link_to "メニュー", rooms_path, method: :get, class: "Room-delete__menu"

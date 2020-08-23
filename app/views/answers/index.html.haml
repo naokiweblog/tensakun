@@ -3,6 +3,8 @@
 .Header
   .Header__left
     =@room.name
+    - if teacher_signed_in?
+      = link_to "削除", room_path(@room), class: "Header__left--delete", method: "delete"
   .Header__name
     てんさくん
   .Header__right

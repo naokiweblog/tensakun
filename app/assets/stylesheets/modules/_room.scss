@@ -54,3 +54,18 @@
     border-radius: 0.1rem;
   }
 }
+
+.Room-delete {
+  height: calc(100vh - 50px);
+  background-color: bisque;
+  font-family: "Sawarabi Mincho";
+  text-align:center;
+  padding-top: 100px;
+  &__title {
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+  &__menu {
+    @include btn;
+  }
+}
