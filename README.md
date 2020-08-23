@@ -50,15 +50,15 @@
 ### トップページ
 #### 講師か生徒としてログインします。簡単ログインをどうぞお使いください。
 <img width="1436" alt="tensakun_top" src="https://user-images.githubusercontent.com/66059951/90982140-367e5b00-e5a0-11ea-9a1d-e0aa77e8d9d2.png">
----
+
 ### 部屋選択メニュー
 #### 参加する部屋を選びます。「(例)6-A」
 <img width="1436" alt="tensakun_room" src="https://user-images.githubusercontent.com/66059951/90982148-4138f000-e5a0-11ea-8a60-89d4d632ee96.png">
----
+
 ### 講師から見た部屋
 #### 部屋にいる全生徒の答案が表示されます。上から時系列順に並んでいるので、講師は上から添削していきます。
 <img width="1431" alt="tensakun_student" src="https://user-images.githubusercontent.com/66059951/90982154-472ed100-e5a0-11ea-8754-e0f040e6706c.png">
----
+
 ### 講師から見た部屋
 #### 分の答案のみが表示されます。画面下側のフォームから答案を新規投稿できます。
 <img width="1435" alt="tensakun_teacher" src="https://user-images.githubusercontent.com/66059951/90982158-4b5aee80-e5a0-11ea-8e0d-e8d54960f95c.png">
