@@ -10,7 +10,7 @@
 ## 使用技術一覧
 - インフラ
   - AWS (VPC, EC2, RDS, ALB, Route53)
-  - 開発環境 (Docker, Docker-compose)
+  - Docker, Docker-compose (開発環境)
   - CircleCI (gitHubでのプルリクエスト→Rspecのテスト実行)
 - バックエンド
   - Ruby 2.6.5
