@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :new, :create]
 
   resources :rooms do
-    resources :answers, only: [:index, :create, :edit, :update]
+    resources :answers, only: [:index, :create, :edit, :update, :destroy]
 
     namespace :api do
       resources :answers, only: :index, defaults: { format: 'json' }
