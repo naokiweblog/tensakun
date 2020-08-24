@@ -58,9 +58,9 @@
 ---
 #### 講師から見た部屋
 部屋にいる全生徒の答案が表示されます。上から時系列順に並んでいるので、講師は上から添削していきます。
-<img width="1431" alt="tensakun_student" src="https://user-images.githubusercontent.com/66059951/90982154-472ed100-e5a0-11ea-8754-e0f040e6706c.png">
+<img width="1435" alt="tensakun_teacher" src="https://user-images.githubusercontent.com/66059951/90982158-4b5aee80-e5a0-11ea-8e0d-e8d54960f95c.png">
 
 ---
 #### 生徒から見た部屋
 自分の答案のみが表示されます。画面下側のフォームから答案を新規投稿できます。
-<img width="1435" alt="tensakun_teacher" src="https://user-images.githubusercontent.com/66059951/90982158-4b5aee80-e5a0-11ea-8e0d-e8d54960f95c.png">
+<img width="1431" alt="tensakun_student" src="https://user-images.githubusercontent.com/66059951/90982154-472ed100-e5a0-11ea-8754-e0f040e6706c.png">
