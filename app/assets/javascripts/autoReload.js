@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(answer){
-    let html = `<div class="Answers__one">
+    let html = `<div class="Answers__one" data-answer-id="${answer.id}">
                   <div class="Answers__one--info">
                     <div class="Answers__one--info--question">
                       <p>問</p>
@@ -30,7 +30,7 @@ $(function(){
   }
 
   function studentBuildHTML(answer){
-    let html = `<div class="Answers__one">
+    let html = `<div class="Answers__one data-answer-id="${answer.id}">
                   <div class="Answers__one--info">
                     <div class="Answers__one--info--question">
                       <p>問</p>
