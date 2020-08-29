@@ -65,6 +65,7 @@ $(function(){
       data: {id: last_answer_id}
     })
     .done(function(answers) {
+      console.log("ok")
       if (answers.length !== 0) {
         let insertHTML = "";
         $.each(answers, function(i, answer) {
