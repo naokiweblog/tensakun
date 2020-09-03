@@ -11,6 +11,8 @@ class Student < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
+  mount_uploader :image, ImageUploader
+
   def self.guest
     find_or_create_by!(email: "student@example.com") do |student|
       student.name = "生徒太郎"

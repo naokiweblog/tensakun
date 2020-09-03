@@ -77,3 +77,9 @@ group :production do
   # Unicorn
   gem 'unicorn', '5.4.1'
 end
+
+# carrierwave
+gem 'carrierwave'
+
+# mini_magick
+gem 'mini_magick'

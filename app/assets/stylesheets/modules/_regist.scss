@@ -32,11 +32,11 @@
   }
   &__name {
     @extend .Regist__mail;
-  &--title {
-    @extend .Regist__mail--title;
-  }
-  &--field {
-    @extend .Regist__mail--field;
+    &--title {
+      @extend .Regist__mail--title;
+    }
+    &--field {
+      @extend .Regist__mail--field;
     }
   }
   &__password {
@@ -75,6 +75,14 @@
       display: block;
       border-color: midnightblue;
       border-radius: 0.1rem;
+    }
+  }
+
+  // edit
+  &__image {
+    @extend .Regist__mail;
+    &--title {
+      @extend .Regist__mail--title;
     }
   }
 }

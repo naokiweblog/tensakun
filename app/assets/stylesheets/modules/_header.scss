@@ -39,6 +39,9 @@
       border-radius: 0.5rem;
       margin-right: 10px;
     }
+    &--mypage {
+      @extend .Header__right--room;
+    }
     &--index {
       @extend .Header__right--room;
     }

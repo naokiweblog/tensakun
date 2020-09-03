@@ -1,0 +1,21 @@
+.User {
+  height: calc(100vh - 50px);
+  background-color: bisque;
+  font-family: "Sawarabi Mincho";
+  color: midnightblue;
+  text-align: center;
+  &__name {
+    font-size: 20px;
+  }
+  &__image {
+    object-fit: cover;
+    height: 200px;
+  }
+  &__edit {
+    display: block;
+  }
+}
+
+.Group {
+  background-color: forestgreen;
+}
