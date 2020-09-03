@@ -10,6 +10,9 @@
   .Header__right
     - if teacher_signed_in?
       = link_to "部屋を作成", new_room_path, method: :get, class: "Header__right--room"
+      = link_to "マイページ", teacher_path(current_teacher.id), method: :get, class: "Header__right--mypage"
+    - elsif student_signed_in?
+      = link_to "マイページ", student_path(current_student.id), method: :get, class: "Header__right--mypage"
     = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
 
 .Room
@@ -17,4 +20,3 @@
     = link_to room_answers_path(room.id), class:"Room__one" do
       .Room__one--name
         = room.name
-

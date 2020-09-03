@@ -1,0 +1,19 @@
+.Header
+  .Header__left
+    = current_teacher.name
+  .Header__name
+    てんさくん
+  .Header__right
+    = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
+
+.User
+  .User__name
+    = current_teacher.name
+  - if current_teacher.image.present?
+    = image_tag current_teacher.image.url, class: "User__image"
+  - else
+    = image_tag "/images/default.png", class: "User__image"
+  = link_to "プロフィール編集", edit_teacher_registration_path, class: "User__edit"
+
+.Group
