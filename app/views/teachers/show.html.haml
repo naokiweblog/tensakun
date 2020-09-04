@@ -17,3 +17,9 @@
   = link_to "プロフィール編集", edit_teacher_registration_path, class: "User__edit"
 
 .Group
+  = link_to "新規チャット", new_group_path, class: "Group__new"
+  .Group__list
+    - current_teacher.groups.each do |group|
+      .Group__list--one
+        = group.teachers.pluck(:name).join(" ")
+        = group.students.pluck(:name).join(" ")

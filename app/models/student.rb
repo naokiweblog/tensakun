@@ -7,6 +7,9 @@ class Student < ApplicationRecord
   has_many :answers
   has_many :room_students
   has_many :rooms, through: :room_students
+  has_many :group_students
+  has_many :groups, through: :group_students
+  has_many :messages
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

@@ -27,8 +27,9 @@ Rails.application.routes.draw do
 
   root 'tops#index'
   resources :rooms, only: [:index, :new, :create]
-  resources :teachers, only: [:show]
-  resources :students, only: [:show]
+  resources :teachers, only: [:index, :show]
+  resources :students, only: [:index, :show]
+  resources :groups, only: [:index, :new, :create, :show]
 
   resources :rooms do
     resources :answers, only: [:index, :create, :edit, :update, :destroy]
