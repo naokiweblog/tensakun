@@ -1,0 +1,63 @@
+.New-group {
+  height: calc(100vh - 50px);
+  background-color: bisque;
+  text-align: center;
+  padding-top: 30px;
+  &__search {
+    &--form {
+      @include form;
+      margin-top: 0px;
+    }
+  }
+  &__text {
+    font-size: 30px;
+    font-family: "Sawarabi Mincho";
+    color: midnightblue;
+    margin-top: 20px;
+  }
+  &__button {
+    @include btn;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}
+
+.NewMember {
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  margin: 0 auto;
+  background-color: white;
+  border-bottom: midnightblue solid 1px;
+  border-left: midnightblue solid 1px;
+  border-right: midnightblue solid 1px;
+  display: flex;
+  justify-content: space-between;
+  &__name {
+
+  }
+  &__button {
+    cursor: pointer;
+    background-color: red;
+    color: aliceblue;
+    border-radius: 0.1rem;
+  }
+}
+
+.GroupMember {
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  &__name {
+
+  }
+  &__button {
+    cursor: pointer;
+    background-color: lightblue;
+    color: black;
+    border-radius: 0.1rem;
+  }
+}

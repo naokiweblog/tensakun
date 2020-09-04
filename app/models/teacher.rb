@@ -6,6 +6,9 @@ class Teacher < ApplicationRecord
 
   has_many :room_teachers
   has_many :rooms, through: :room_teachers
+  has_many :group_teachers
+  has_many :groups, through: :group_teachers
+  has_many :messages
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

@@ -1,5 +1,5 @@
 .User {
-  height: calc(100vh - 50px);
+  height: 300px;
   background-color: bisque;
   font-family: "Sawarabi Mincho";
   color: midnightblue;
@@ -17,5 +17,13 @@
 }
 
 .Group {
+  height: calc(100vh - 350px);
   background-color: forestgreen;
+  text-align: center;
+  padding-top: 10px;
+  &__new {
+    @include btn(midnightblue);
+    
+    border: aliceblue solid 1px;
+  }
 }

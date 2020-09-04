@@ -1,0 +1,40 @@
+.Header
+  .Header__left
+    - if teacher_signed_in?
+      = current_teacher.name
+    - elsif student_signed_in?
+      = current_student.name
+  .Header__name
+    てんさくん
+  .Header__right
+    = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
+    - if teacher_signed_in?
+      = link_to "マイページ", teacher_path(current_teacher.id), method: :get, class: "Header__right--mypage"
+      = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
+    - elsif student_signed_in?
+      = link_to "マイページ", student_path(current_student.id), method: :get, class: "Header__right--mypage"
+      = link_to "ログアウト", destroy_student_session_path, method: :delete, class: "Header__right--logout"
+
+.New-group
+  = form_with model: @group, local: true do |f|
+    .New-group__search
+      %input#UserSearch.New-group__search--form{placeholder: "講師・生徒を検索", type: "text"}
+      #UserSearchTeacher.New-group__search--teacher
+      // append
+      #UserSearchStudent.New-group__search--student
+      // append
+    .New-group__text
+      メンバー
+    #GroupTeachers.New-group__teacher
+      - if teacher_signed_in?
+        .GroupMember
+          %p.GroupMember__name= current_teacher.name
+          %input{name: "group[teacher_ids][]", type: "hidden", value: current_teacher.id}
+        //append
+    #GroupStudents.New-group__student
+      - if student_signed_in?
+        .GroupMember
+          %p.GroupMember__name= current_student.name
+          %input{name: "group[student_ids][]", type: "hidden", value: current_student.id}
+        //append
+    = f.submit "作成", class: "New-group__button"

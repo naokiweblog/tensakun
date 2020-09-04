@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_143135) do
+ActiveRecord::Schema.define(version: 2020_09_04_105250) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question", null: false
@@ -23,6 +23,42 @@ ActiveRecord::Schema.define(version: 2020_09_01_143135) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_answers_on_room_id"
     t.index ["student_id"], name: "index_answers_on_student_id"
+  end
+
+  create_table "group_students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_students_on_group_id"
+    t.index ["student_id"], name: "index_group_students_on_student_id"
+  end
+
+  create_table "group_teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "teacher_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_teachers_on_group_id"
+    t.index ["teacher_id"], name: "index_group_teachers_on_teacher_id"
+  end
+
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.string "image"
+    t.bigint "group_id", null: false
+    t.bigint "teacher_id"
+    t.bigint "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_messages_on_group_id"
+    t.index ["student_id"], name: "index_messages_on_student_id"
+    t.index ["teacher_id"], name: "index_messages_on_teacher_id"
   end
 
   create_table "room_students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,6 +118,13 @@ ActiveRecord::Schema.define(version: 2020_09_01_143135) do
 
   add_foreign_key "answers", "rooms"
   add_foreign_key "answers", "students"
+  add_foreign_key "group_students", "groups"
+  add_foreign_key "group_students", "students"
+  add_foreign_key "group_teachers", "groups"
+  add_foreign_key "group_teachers", "teachers"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "students"
+  add_foreign_key "messages", "teachers"
   add_foreign_key "room_students", "rooms"
   add_foreign_key "room_students", "students"
   add_foreign_key "room_teachers", "rooms"
