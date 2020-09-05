@@ -1,9 +1,7 @@
 .Header
-  .Header__left
-    - if teacher_signed_in?
-      = current_teacher.name
-    - elsif student_signed_in?
-      = current_student.name
+  .Header__left-group
+    = @group.teachers.pluck(:name).join(" ")
+    = @group.students.pluck(:name).join(" ")
   .Header__name
     てんさくん
   .Header__right
@@ -17,40 +15,47 @@
 
 .Messages
   - @messages.each do |message|
-    - if message.teacher.id == current_teacher.id
+    - if message.teacher == current_teacher
       .One-message{data: {message: {id: message.id}}}
         .One-message__content
           - if message.content.present?
-            %p.One-message__content--value
-              = message.content
-          = image_tag message.image.url, class: "One-message__image" if message.image.present?
-          .One-message__time
-            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    - elsif message.student.id == current_student.id
+            .One-message__content--value
+              %p.One-message__content--value--text
+                = message.content
+        = image_tag message.image.url, class: "One-message__image" if message.image.present?
+        .One-message__time
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    - elsif message.student == current_student
       .One-message{data: {message: {id: message.id}}}
         .One-message__content
           - if message.content.present?
-            %p.One-message__content--value
-              = message.content
-          = image_tag message.image.url, class: "One-message__image" if message.image.present?
-          .One-message__time
-            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            .One-message__content--value
+              %p.One-message__content--value--text
+                = message.content
+        = image_tag message.image.url, class: "One-message__image" if message.image.present?
+        .One-message__time
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
     - else
       .Other-message{data: {message: {id: message.id}}}
-        .Other-message__left
-          = image_tag message.teacher.image.url, class: "Other-message__left--image" if message.teacher.present?
-          = image_tag message.student.image.url, class: "Other-message__left--image" if message.student.present?
-          .Other-message__left--name
-            = message.teacher.name if message.teacher.present?
-            = message.student.name if message.student.present?
+        - if message.teacher.present?
+          = link_to teacher_path(message.teacher.id), method: :get, class: "Other-message__left" do
+            = image_tag message.teacher.image.url, class: "Other-message__left--image"
+            .Other-message__left--name
+              = message.teacher.name
+        - elsif message.student.present?
+          = link_to student_path(message.student.id), method: :get, class: "Other-message__left" do
+            = image_tag message.student.image.url, class: "Other-message__left--image"
+            .Other-message__left--name
+              = message.student.name
         .Other-message__right
           .Other-message__right__content
             - if message.content.present?
-              %p.Other-Message__right__content--value
-                = message.content
-            = image_tag message.image.url, class: 'Other-message__right__image' if message.image.present?
-            .Other-message__right__time
-              = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              .Other-message__right__content--value
+                %p.Other-message__right__content--value--text
+                  = message.content
+          = image_tag message.image.url, class: 'Other-message__right__image' if message.image.present?
+          .Other-message__right__time
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
 .MessageFooter
   = form_with model: [@group, @message], html: {class: "MessagePost"}, id: "form", local: true do |form|

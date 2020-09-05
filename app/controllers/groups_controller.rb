@@ -13,10 +13,8 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    if @group.save && teacher_signed_in?
-      redirect_to teacher_path(current_teacher.id)
-    elsif @group.save && student_signed_in?
-      redirect_to student_path(current_student.id)
+    if @group.save
+      redirect_to group_messages_path(@group)
     else
       render :new
     end
