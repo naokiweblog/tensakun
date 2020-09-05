@@ -1,0 +1,45 @@
+.Messages {
+  height: calc(100vh - 100px);
+  overflow: scroll;
+}
+
+
+.MessageFooter {
+  background-color: forestgreen;
+  height: 50px;
+  padding: 5px 0;
+}
+
+.MessagePost {
+  background-color: forestgreen;
+  display: flex;
+  height: 40px;
+  width: 360px;
+  margin: 0px auto;
+  &__contents {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin: 0px auto;
+    position: relative;
+    &--message {
+      width: 100%;
+      font-size: 25px;
+    }
+    &--image {
+      position: absolute;
+      height: 40px;
+      right: 10px;
+      line-height: 40px;
+      &--icon {
+      }
+      &--input {
+        display: none;
+      }
+    }
+  }
+  &__submit {
+    height: 40px;
+  }
+}
