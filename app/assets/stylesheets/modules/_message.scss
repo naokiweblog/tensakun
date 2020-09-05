@@ -1,8 +1,79 @@
 .Messages {
   height: calc(100vh - 100px);
   overflow: scroll;
+  background-color: bisque;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+.One-message {
+  margin-top: 10px;
+  text-align: right;
+  &__content {
+    text-align: right;
+    &--value {
+      display: inline-block;
+      border-radius: 1rem;
+      padding: 5px;
+      background-color: greenyellow;
+      &--text {
+        display: inline-block;
+        max-width: 400px;
+        background-color: greenyellow;
+      }
+    }
+  }
+  &__image {
+    object-fit: cover;
+    width: 550px;
+  }
+  &__time {
+    font-size: 5px;
+
+  }
 }
 
+.Other-message {
+  margin-top: 10px;
+  text-align: left;
+  &__left {
+    display: flex;
+    &--image {
+      object-fit: cover;
+      width: 50px;
+      border-radius: 50%;
+    }
+    &--name {
+      font-size: 5px;
+      margin-top: auto;
+      margin-left: 5px;
+    }
+  }
+  &__right {
+    &__content {
+      text-align: left;
+      &--value {
+        display: inline-block;
+        border-radius: 1rem;
+        padding: 5px;
+        background-color: white;
+        &--text {
+          display: inline-block;
+          max-width: 400px;
+          background-color: white;
+        }
+      }
+    }
+    &__image {
+      object-fit: cover;
+      width: 550px;
+    }
+    &__time {
+      font-size: 5px;
+  
+    }
+  }
+}
 
 .MessageFooter {
   background-color: forestgreen;
@@ -14,10 +85,10 @@
   background-color: forestgreen;
   display: flex;
   height: 40px;
-  width: 360px;
+  width: 600px;
   margin: 0px auto;
   &__contents {
-    width: 340px;
+    width: 580px;
     display: flex;
     justify-content: space-between;
     height: 40px;

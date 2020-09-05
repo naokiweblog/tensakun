@@ -4,7 +4,9 @@ $(function(){
       let html = `<div class="One-message" data-message-id=${message.id}>
                     <div class="One-message__content">
                       <div class="One-message__content--value">
-                        ${message.content}
+                        <p class="One-message__content--value--text">
+                          ${message.content}
+                        </p>
                       </div>
                     </div>
                     <image class="One-message__image" src="${message.image}">
@@ -17,7 +19,9 @@ $(function(){
       let html = `<div class="One-message" data-message-id=${message.id}>
                     <div class="One-message__content">
                       <div class="One-message__content--value">
-                        ${message.content}
+                        <p class="One-message__content--value--text">
+                          ${message.content}
+                        </p>
                       </div>
                     </div>
                     <div class="One-message__time">

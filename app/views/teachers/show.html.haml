@@ -1,28 +1,32 @@
 .Header
   .Header__left
-    = current_teacher.name
+    = current_teacher.name if teacher_signed_in?
+    = current_student.name if student_signed_in?
   .Header__name
     てんさくん
   .Header__right
     = link_to "メニュー", rooms_path, method: :get, class: "Header__right--index"
-    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout"
+    = link_to "ログアウト", destroy_teacher_session_path, method: :delete, class: "Header__right--logout" if teacher_signed_in?
+    = link_to "ログアウト", destroy_student_session_path, method: :delete, class: "Header__right--logout" if student_signed_in?
 
 .User
   .User__name
-    = current_teacher.name
-  - if current_teacher.image.present?
-    = image_tag current_teacher.image.url, class: "User__image"
+    = @teacher.name
+  - if @teacher.image.present?
+    = image_tag @teacher.image.url, class: "User__image"
   - else
     = image_tag "/images/default.png", class: "User__image"
-  = link_to "プロフィール編集", edit_teacher_registration_path, class: "User__edit"
+  = link_to "プロフィール編集", edit_teacher_registration_path, class: "User__edit" if @teacher == current_teacher
+
 
 .Group
-  = link_to "新規チャット", new_group_path, class: "Group__new"
-  .Group__list
-    - current_teacher.groups.each do |group|
-      = link_to group_messages_path(group), class:".Group__list--one" do
-        .Group__list--one--member
-          = group.teachers.pluck(:name).join(" ")
-          = group.students.pluck(:name).join(" ")
-        .Group__list--one--message
-          = group.show_last_message
+  - if @teacher == current_teacher
+    = link_to "新規チャット", new_group_path, class: "Group__new"
+    .Group__list
+      - current_teacher.groups.each do |group|
+        = link_to group_messages_path(group), class:"Group__list--one" do
+          .Group__list--one--member
+            = group.teachers.pluck(:name).join(" ")
+            = group.students.pluck(:name).join(" ")
+          .Group__list--one--message
+            = group.show_last_message

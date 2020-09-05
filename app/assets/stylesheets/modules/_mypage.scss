@@ -17,13 +17,33 @@
 }
 
 .Group {
-  height: calc(100vh - 350px);
+  height: calc(100vh - 350px);;
   background-color: forestgreen;
   text-align: center;
   padding-top: 10px;
   &__new {
     @include btn(midnightblue);
-    
+    height: 60px;
     border: aliceblue solid 1px;
+  }
+  &__list {
+    background-color: forestgreen;
+    height: calc(100vh - 410px);
+    overflow: scroll;
+    &--one {
+      border: white solid 1px;
+      width: 360px;
+      display: block;
+      text-decoration: none;
+      color: white;
+      margin: 0 auto;
+      text-align: left;
+      &--member {
+        width: 360px;
+      }
+      &--message {
+
+      }
+    }
   }
 }
