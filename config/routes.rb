@@ -26,16 +26,15 @@ Rails.application.routes.draw do
   end
 
   root 'tops#index'
-  resources :rooms, only: [:index, :new, :create]
-  resources :teachers, only: [:index, :show]
-  resources :students, only: [:index, :show]
-  resources :groups, only: [:index, :new, :create, :show]
-
-  resources :rooms do
+  resources :rooms, only: [:index, :new, :create, :destroy] do
     resources :answers, only: [:index, :create, :edit, :update, :destroy]
-
     namespace :api do
       resources :answers, only: :index, defaults: { format: 'json' }
     end
+  end
+  resources :teachers, only: [:index, :show]
+  resources :students, only: [:index, :show]
+  resources :groups, only: [:index, :new, :create, :show] do
+    resources :messages, only: [:index, :create]
   end
 end

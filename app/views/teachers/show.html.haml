@@ -20,6 +20,9 @@
   = link_to "新規チャット", new_group_path, class: "Group__new"
   .Group__list
     - current_teacher.groups.each do |group|
-      .Group__list--one
-        = group.teachers.pluck(:name).join(" ")
-        = group.students.pluck(:name).join(" ")
+      = link_to group_messages_path(group), class:".Group__list--one" do
+        .Group__list--one--member
+          = group.teachers.pluck(:name).join(" ")
+          = group.students.pluck(:name).join(" ")
+        .Group__list--one--message
+          = group.show_last_message
