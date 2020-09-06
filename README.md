@@ -12,11 +12,15 @@
   - AWS (VPC, EC2, RDS, ALB, Route53)
   - Docker, Docker-compose (開発環境)
   - CircleCI (gitHubでのプルリクエスト→Rspecのテスト実行)
+  - Nginx
+  - Unicorn
 - バックエンド
   - Ruby 2.6.5
   - Rails 6.0.0
   - MySQL 5.6.47
   - Devise
+  - CarrierWave
+  - MiniMagick
 - フロントエンド
   - Haml
   - Scss
