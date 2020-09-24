@@ -51,8 +51,13 @@
       width: 100px;
       height: 30px;
       display: block;
-      border-color: midnightblue;
       border-radius: 0.1rem;
+      background-color: forestgreen;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
     }
   }
 }
@@ -60,4 +65,16 @@
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  &__session-btn {
+    margin: 10px auto 10px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    border-radius: 0.1rem;
+    background-color: midnightblue;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+  }
 }
