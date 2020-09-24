@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_group
+  before_action :move_to_top
 
   def index
     @message = Message.new
@@ -25,7 +26,16 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:content, :image).merge(student_id: current_student.id)
     end
   end
+
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def move_to_top
+    if student_signed_in?
+    elsif teacher_signed_in?
+    else
+      redirect_to root_path
+    end
   end
 end
