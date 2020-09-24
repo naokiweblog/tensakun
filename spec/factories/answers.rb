@@ -6,7 +6,7 @@ FactoryBot.define do
     score                 {1}
     hint                  {"食べたのはりんごだけかな。"}
     room_id               {1}
-    student_id               {1}
+    student_id            {1}
 
     association :room
     association :student
